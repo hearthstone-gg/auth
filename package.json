@@ -1,0 +1,12 @@
+{
+	"name": "auth",
+	"description": "auth server for hearthstone.gg",
+	"author": "",
+	"version": "0.0.0",
+	"devDependencies": {},
+	"engine": "node >= 0.10.x",
+	"scripts": {
+		"start": "node app",
+		"install": "cd server && npm install"
+	}
+}
