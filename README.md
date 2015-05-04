@@ -26,25 +26,25 @@ View:
 ##Endpoints
 
 login:
-  ``` /auth/bnet```
+  ``` /auth/bnet ```
 
 logout:
-  ``` /logout```
+  ``` /logout ```
 
 get user:
-  ``` /user```
+  ``` /user ```
 
 auth callback:
-  ``` /auth/bnet/callback```
+  ``` /auth/bnet/callback ```
 
 connect bnet account:
-  ``` /connect/bnet```
+  ``` /connect/bnet ```
 
 connect callback:
-  ``` /connect/bnet/callback```
+  ``` /connect/bnet/callback ```
 
 unlink:
-  ``` /unlink/bnet```
+  ``` /unlink/bnet ```
 
 
 ##CLI Arguments
