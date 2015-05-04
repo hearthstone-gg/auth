@@ -17,10 +17,10 @@ Build:
   * ```./build.sh``` in ./
 
 Run:
-  * ```node app``` in ./
+  * ```npm start``` in ./
 
 View:
-	```http://localhost:8080```
+	```http://localhost:3002```
 
 ##CLI Arguments
 
