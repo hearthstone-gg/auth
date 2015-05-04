@@ -33,29 +33,22 @@ View:
 ##Endpoints
 
 login:
-
 ```/auth/bnet```
 
 logout:
-
 ```/logout```
 
 get user:
-
 ```/user```
 
 auth callback:
-
 ```/auth/bnet/callback```
 
 connect bnet account:
-
 ```/connect/bnet```
 
 connect callback:
-
 ```/connect/bnet/callback```
 
 unlink:
-
 ```/unlink/bnet```
