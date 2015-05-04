@@ -22,16 +22,7 @@ Run:
 View:
 	```http://localhost:3002```
 
-##CLI Arguments
-
-**--env (-e)**
-  config file to load.
-  ```
-    node app --env=prod //run with the config from ./app/config/prod.js
-  ```
-
-##Endpoints
-
+Endpoints:
 login:
 ```/auth/bnet```
 
@@ -52,3 +43,12 @@ connect callback:
 
 unlink:
 ```/unlink/bnet```
+
+
+##CLI Arguments
+
+**--env (-e)**
+  config file to load.
+  ```
+    node app --env=prod //run with the config from ./app/config/prod.js
+  ```
