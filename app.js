@@ -1,5 +1,4 @@
 'use strict';
-
 var server = require('./server/app');
 
 var env = require('./server/config/local');

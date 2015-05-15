@@ -7,7 +7,8 @@
     "passport": "~0.2.1",
     "connect-flash": "~0.1.1",
     "node-uuid": "~1.4.3",
-    "passport-bnet": "~1.1.1"
+    "passport-bnet": "~1.1.1",
+    "pmx": "~0.3.11"
   },
   "engines": {
     "node": ">=0.10.0"

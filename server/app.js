@@ -1,5 +1,5 @@
 'use strict';
-
+require('pmx').init();
 var path = require('path');
 var fs = require('fs');
 var EventEmitter = require('events').EventEmitter;
