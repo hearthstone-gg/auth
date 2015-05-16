@@ -17,9 +17,12 @@
 			#arg server -- the http server instance
 */
 var http = require('http');
+var https = require('https');
 var express = require('express');
 var util = require('util');
 var passport = require('passport');
+var fs = require('fs');
+var path = require('path');
 
 
 var Module = require('./module').Module;
@@ -29,12 +32,17 @@ var Server = exports.Server = function(options, events) {
 	//call parent constructor
 	var self = this;
 
+	var privateKey  = fs.readFileSync(path.join(__dirname, '../../../sslcert/localhost.key'), 'utf8');
+	var certificate = fs.readFileSync(path.join(__dirname, '../../../sslcert/localhost.cert'), 'utf8');
+
+	var credentials = {key: privateKey, cert: certificate};
+
 	var app = express();
 	var httpServer = http.createServer(app);
 
 	events.on('modules:loaded', function(){
 		//tell the other modules to configure the express app
-		events.emit('server:configure', app, httpServer);
+		events.emit('server:configure', app, httpsServer);
 
 		app.configure(function() {
 			app.use(app.router);
@@ -48,10 +56,22 @@ var Server = exports.Server = function(options, events) {
 		events.emit('server:genericRoutes', app);
 
 		var serverOptions = self.options.get('server');
-		//create server
+		var httpsServer = https.createServer(credentials, app);
+		//create servers
 		httpServer.listen(serverOptions.port, function() {
-			self.log('Environment is ' + self.options.get('env') + ' - listening on port ' + serverOptions.port);
-			events.emit('server:ready', httpServer);
+
+			httpServer.on('request', function (req, res) {
+				// TODO also redirect websocket upgrades
+				res.setHeader('Location' , 'https://' + req.headers.host.replace(/:\d+/, ':' + serverOptions.sslPort) + req.url);
+				res.statusCode = 302;
+			});
+			events.emit('server:insecureready', httpServer);
+			self.log('Redirecting all traffic on ' + serverOptions.port + ' to ' + serverOptions.sslPort)
+		});
+
+		httpsServer.listen(serverOptions.sslPort, function() {
+			self.log('Environment is ' + self.options.get('env') + ' - listening on port ' + serverOptions.sslPort);
+			events.emit('server:ready', httpsServer);
 		});
 	});
 };

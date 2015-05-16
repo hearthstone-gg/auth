@@ -26,6 +26,9 @@ var BattleNet = exports.Bnet = function(options, events, models) {
 	events.on('server:routes', function(app, passport) {
 		self.bindStrategies(app, passport);
 	});
+	events.on('server:routes', function(app, passport) {
+		self.bindStrategies(app, passport);
+	});
 
 	events.on('server:configurePassport', function(passport) {
 		self.configurePassport(passport);
