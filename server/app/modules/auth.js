@@ -99,6 +99,6 @@ Auth.prototype.sendUser = function(req,res) {
 			events.emit('active', {user: req.user.getDisplayName()});
 		});
 	} else {
-		res.json({error: true});
+		res.json(404, 'Not Found');
 	}
 }
