@@ -8,7 +8,8 @@
     "connect-flash": "~0.1.1",
     "node-uuid": "~1.4.3",
     "passport-bnet": "~1.1.1",
-    "pmx": "~0.3.11"
+    "pmx": "~0.3.11",
+    "hs.gg-config": "git+https://github.com/hearthstone-gg/config.git"
   },
   "engines": {
     "node": ">=0.10.0"
