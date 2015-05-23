@@ -1,7 +1,7 @@
-var config = require('hs.gg-config').get('local').services.auth;
+var config = require('hs.gg-config').get('example').services.auth;
 
 module.exports = {
-    "env": "local",
+    "env": "example",
     "server": {
         "port": config.port,
         "sslPort": config.httpsPort
@@ -9,8 +9,8 @@ module.exports = {
     "db": "mongodb://localhost/hsgg",
     "auth": {
         "bnetAuth": {
-            "clientID": "",
-            "clientSecret": "",
+            "clientID": "************",
+            "clientSecret": "************",
             "callbackURL": 'https://' + config.domain + "/auth/bnet/callback"
         }
     },
