@@ -12,6 +12,7 @@ Install:
   * Install the server
   * ```npm install```
   * ```run npm install for any projects in public/```
+  * copy ``` server/config/example.config ``` to ```server/config/local.config``` and update with settings
 
 Build:
   * ```./build.sh``` in ./
