@@ -93,7 +93,8 @@ Auth.prototype.sendUser = function(req,res) {
 		req.user.generateToken(function() {
 			res.json({
 				displayName: req.user.getDisplayName(),
-				token: req.user.token
+				token: req.user.token,
+				_id: req.user._id
 			});
 
 			events.emit('active', {user: req.user.getDisplayName()});
